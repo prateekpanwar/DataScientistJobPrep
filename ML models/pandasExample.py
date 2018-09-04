@@ -59,3 +59,29 @@ print(DF_obj)
 fill_DF = DF_obj.fillna(0)
 
 print(fill_DF)
+
+fill_DF = DF_obj.fillna({0: 0.1, 5:1.25}) #Replacing with Dict
+
+print(fill_DF)
+
+fill_DF = DF_obj.fillna(method='ffill') #replace by the last know value in that col
+
+print(fill_DF)
+
+print(DF_obj.isna().sum()) #counting nan for each row
+
+fill_DF = DF_obj.dropna() #Dropping all the rows with nan
+
+print(fill_DF)
+
+fill_DF = DF_obj.dropna(how='all') #Drop only those rows which has all the values nan
+
+print(fill_DF)
+
+############################Removing dulplicates#####################################
+
+missing  = np.nan
+
+series_obj = Series(['row 1', missing, 'row 3', 'row 4', 'row 5', missing, 'row 7', 'row 8'])
+
+print (series_obj)
