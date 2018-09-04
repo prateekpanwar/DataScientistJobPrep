@@ -37,3 +37,25 @@ print(DF_obj['row 1': 'row 5'])
 
 print(DF_obj < .2) #Comparision
 
+###################################Replacing missing values#############################
+
+missing  = np.nan
+
+series_obj = Series(['row 1', missing, 'row 3', 'row 4', 'row 5', missing, 'row 7', 'row 8'])
+
+print (series_obj)
+
+print(series_obj.isnull())
+
+np.random.seed(25)
+
+DF_obj = DataFrame(np.random.rand(36).reshape(6,6))
+
+DF_obj.loc[3:5, 0] = missing
+DF_obj.loc[1:4, 5] = missing
+
+print(DF_obj)
+
+fill_DF = DF_obj.fillna(0)
+
+print(fill_DF)
