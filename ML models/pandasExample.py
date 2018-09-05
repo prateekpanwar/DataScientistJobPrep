@@ -136,8 +136,23 @@ added_variable = variable_added.append(variable_added, ignore_index=False) #addi
 
 print(added_variable)
 
-DF_sorted = DF_obj.sort_values(by=[5], ascending=False)
+DF_sorted = DF_obj.sort_values(by=[5], ascending=False) #sort by col 5
 
 print(DF_sorted)
+
+###############using the data file to group#####################################
+
+address = './mtcars.csv'
+
+cars = pd.read_csv(address)
+
+cars.columns = ['car_names','mpg','cyl','disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
+
+print(cars.head())
+
+cars_groups = cars.groupby(cars['cyl'])
+
+cars_groups.mean()
+print(cars_groups)
 
 
