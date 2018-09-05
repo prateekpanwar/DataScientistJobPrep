@@ -102,3 +102,42 @@ DF_obj = DataFrame({'column 1': [1, 1, 2, 2, 3, 3, 3],
 print(DF_obj)
 
 print(DF_obj.drop_duplicates(['column 3'])) #look for dupicates in col 3 and drop those rows
+
+
+####################################Concatenate###########################################
+
+DF_obj = DataFrame(np.arange(36).reshape(6,6))
+
+print(DF_obj)
+
+DF_obj_2 = DataFrame(np.arange(15).reshape(5,3))
+
+print(DF_obj_2)
+
+print(pd.concat([DF_obj, DF_obj_2], axis = 1)) #axis 1 means along the col
+
+print(pd.concat([DF_obj, DF_obj_2])) #Along the rows
+
+print(DF_obj.drop([0,2])) #Dropping particular rows
+
+print(DF_obj.drop([1,4], axis=1))
+
+series_obj = Series(np.arange(6))
+
+series_obj.name = "testing"
+
+print(series_obj)
+
+variable_added = DataFrame.join(DF_obj, series_obj) #For adding in col
+
+print(variable_added)
+
+added_variable = variable_added.append(variable_added, ignore_index=False) #adding in the rows. Index=True re-index all the table
+
+print(added_variable)
+
+DF_sorted = DF_obj.sort_values(by=[5], ascending=False)
+
+print(DF_sorted)
+
+
