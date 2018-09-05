@@ -85,3 +85,20 @@ missing  = np.nan
 series_obj = Series(['row 1', missing, 'row 3', 'row 4', 'row 5', missing, 'row 7', 'row 8'])
 
 print (series_obj)
+
+DF_obj = DataFrame({'column 1': [1, 1, 2, 2, 3, 3, 3],
+                  'column 2': ['a', 'a', 'b', 'b', 'c', 'c', 'c'],
+                  'column 3': ['A', 'A', 'B', 'B', 'C', 'C', 'C']})
+
+print(DF_obj)
+print(DF_obj.duplicated()) #Check duplicates
+
+print(DF_obj.drop_duplicates())
+
+DF_obj = DataFrame({'column 1': [1, 1, 2, 2, 3, 3, 3],
+                  'column 2': ['a', 'a', 'b', 'b', 'c', 'c', 'c'],
+                  'column 3': ['A', 'A', 'B', 'B', 'C', 'C', 'C']})
+
+print(DF_obj)
+
+print(DF_obj.drop_duplicates(['column 3'])) #look for dupicates in col 3 and drop those rows
