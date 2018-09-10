@@ -48,3 +48,30 @@ plt.show()
 
 plt.savefig('pie_chart.jpg') #Saving the pie chart
 plt.show()
+
+########################object orientented plots######################
+fig = plt.figure()
+
+ax = fig.add_axes([.1, .1, 1, 1])
+
+ax.plot(x,y)
+
+fig = plt.figure()
+ax = fig.add_axes([.1, .1, 1, 1])
+
+ax.set_xlim([1,9])
+ax.set_ylim([0,5])
+
+ax.set_xticks([0,1,2,4,5,6,7,8,9,10])
+ax.set_yticks([0,1,2,3,4,5])
+
+ax.grid()
+
+ax.plot(x,y)
+##########################Subplot######################################
+fig = plt.figure()
+
+fig, (ax1, ax2) = plt.subplot(1,2)
+
+ax1.plot(x)
+ax2.plot(y)
