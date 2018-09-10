@@ -71,7 +71,54 @@ ax.plot(x,y)
 ##########################Subplot######################################
 fig = plt.figure()
 
-fig, (ax1, ax2) = plt.subplot(1,2)
+fig, (ax1, ax2) = plt.subplots(1,2)
 
 ax1.plot(x)
 ax2.plot(y)
+########################Customize the graphs###########################
+
+x = range(1, 10)
+y = [1,2,3,4,0.5,4,3,2,1]
+
+plt.figure()
+plt.bar(x, y)
+
+plt.figure()
+wide = [0.5, 0.5, 0.5, 0.9, 0.9, 0.9, 0.5, 0.5, 0.5]
+color = ['salmon']
+(plt.bar(x,y, width=wide, color=color, align='center'))
+
+cars = pd.read_csv(address)
+cars.columns = ['car_names','mpg','cyl','disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
+
+df = cars[['cyl', 'mpg','wt']]
+plt.figure()
+df.plot()
+
+plt.figure()
+color_theme = ['darkgray', 'lightsalmon', 'powderblue']
+df.plot(color=color_theme)
+
+z = [1,2,3,4,0.5]
+plt.figure()
+plt.pie(z)
+plt.show()
+
+color_theme = ['#A9A9A9', '#FFA07A', '#B0E0E6', '#FFE4C4', '#BDB76B']
+plt.figure()
+plt.pie(z, colors = color_theme)
+plt.show()
+
+x1 = range(0,10)
+y1 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+plt.plot(x, y)
+plt.plot(x1,y1)
+
+plt.figure()
+plt.plot(x,y, ls = 'steps', lw=5)
+plt.plot(x1,y1, ls = '--', lw = 10)
+
+plt.figure()
+plt.plot(x,y, marker='1', mew=15)
+plt.plot(x1, y1, marker='*', mew=20)
