@@ -122,3 +122,19 @@ plt.plot(x1,y1, ls = '--', lw = 10)
 plt.figure()
 plt.plot(x,y, marker='1', mew=15)
 plt.plot(x1, y1, marker='*', mew=20)
+
+####################label and annotations##########################################
+
+x = range(1,10)
+y = [1,2,3,4,0.5,4,3,2,1]
+plt.figure()
+plt.bar(x,y)
+
+plt.xlabel('your x-axis label')
+plt.ylabel('your y-axis label')
+
+z = [1 , 2, 3, 4, 0.5]
+veh_type = ['bicycle', 'motorbike','car', 'van', 'stroller']
+plt.figure()
+plt.pie(z, labels= veh_type)
+plt.show()
