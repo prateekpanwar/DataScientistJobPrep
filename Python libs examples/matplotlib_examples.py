@@ -9,6 +9,7 @@ import numpy as np
 from numpy.random import randn
 import pandas as pd
 from pandas import Series, DataFrame
+from pandas.tools.plotting import scatter_matrix
 
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -190,6 +191,43 @@ ax.annotate('Toyota Corolla', xy=(19,33.9), xytext = (21,35),
            arrowprops=dict(facecolor='black', shrink=0.05))
 
 
-##################################Time series#####################################
+##################################hist#####################################
 
+mpg = cars.mpg
+plt.figure()
+mpg.plot(kind='hist')
 
+plt.figure() #different way
+plt.hist(mpg)
+plt.plot()
+
+plt.figure() #with seaborn
+sb.distplot(mpg)
+
+#################################scatter##################################
+plt.figure()
+cars.plot(kind='scatter', x='hp', y='mpg', c=['darkgray'], s=150)
+
+plt.figure()
+sb.regplot(x='hp', y='mpg', data=cars, scatter=True)
+
+#plt.figure()
+#sb.pairplot(cars)
+
+#cars_df = pd.DataFrame((cars.iloc[:,1:6].values), columns = ['mpg', 'disp', 'hp', 'wt'])
+#plt.figure()
+#cars_target = cars.iloc[:,9].values
+#target_names = [0, 1]
+#
+#cars_df['group'] = pd.Series(cars_target, dtype='category')
+#sb.pairplot(cars_df, hue='group', palette='hls')
+
+#########################box plot#########################################
+
+plt.figure()
+cars.boxplot(column='mpg', by='am')
+plt.figure()
+cars.boxplot(column='wt', by='am')
+
+cars.boxplot(column='mpg', by='am')
+sb.boxplot(x='am', y='mpg', data=cars, palette='hls')
