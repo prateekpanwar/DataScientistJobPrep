@@ -138,3 +138,53 @@ veh_type = ['bicycle', 'motorbike','car', 'van', 'stroller']
 plt.figure()
 plt.pie(z, labels= veh_type)
 plt.show()
+
+cars = pd.read_csv(address)
+cars.columns = ['car_names','mpg','cyl','disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
+
+mpg = cars.mpg #Another way to select a col
+
+fig = plt.figure()
+ax = fig.add_axes([.1, .1, 1, 1])
+
+mpg.plot()
+
+ax.set_xticks(range(32))
+ax.set_xticklabels(cars.car_names, rotation=60, fontsize=('medium'))
+
+ax.set_title('Miles per Gallon of Cars in mtcars')
+
+ax.set_xlabel('car names')
+ax.set_ylabel('miles/gal')
+
+plt.figure()
+plt.pie(z)
+plt.legend(veh_type, loc='best')
+plt.show()
+
+fig = plt.figure()
+ax = fig.add_axes([.1,.1,1,1])
+mpg.plot()
+
+ax.set_xticks(range(32))
+
+ax.set_xticklabels(cars.car_names, rotation=60, fontsize='medium')
+ax.set_title('Miles per Gallon of Cars in mtcars')
+
+ax.set_xlabel('car names')
+ax.set_ylabel('miles/gal')
+
+ax.legend(loc='best')
+
+print(mpg.max())
+
+fig = plt.figure()
+ax = fig.add_axes([.1,.1,1,1])
+mpg.plot()
+ax.set_title('Miles per Gallon of Cars in mtcars')
+ax.set_ylabel('miles/gal')
+
+ax.set_ylim([0,45])
+
+ax.annotate('Toyota Corolla', xy=(19,33.9), xytext = (21,35),
+           arrowprops=dict(facecolor='black', shrink=0.05))
