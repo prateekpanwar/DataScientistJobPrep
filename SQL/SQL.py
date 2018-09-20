@@ -41,9 +41,17 @@ def read_from_db():
     for data in c.fetchall():
         print(data)
 
-def del_and_update():
+def update():
     c.execute("UPDATE stuffsToPlot SET value = 3 WHERE value=8")
     conn.commit()
+    c.execute("SELECT * FROM stuffsToPlot WHERE value=3")
+    for data in c.fetchall():
+        print(data)
+
+def delete():
+    c.execute("DELETE FROM stuffsToPlot WHERE value = 3")
+    conn.commit()
+    
     c.execute("SELECT * FROM stuffsToPlot WHERE value=3")
     for data in c.fetchall():
         print(data)
@@ -55,7 +63,8 @@ def del_and_update():
 #    time.sleep(1)
 
 #read_from_db()
-del_and_update()
+#update()
+delete()
 c.close()
 conn.close()
     
