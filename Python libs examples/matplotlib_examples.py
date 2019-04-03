@@ -9,7 +9,7 @@ import numpy as np
 from numpy.random import randn
 import pandas as pd
 from pandas import Series, DataFrame
-from pandas.tools.plotting import scatter_matrix
+from pandas.plotting import scatter_matrix
 
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
