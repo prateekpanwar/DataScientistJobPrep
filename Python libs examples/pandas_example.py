@@ -155,4 +155,5 @@ cars_groups = cars.groupby(cars['cyl'])
 cars_groups.mean()
 print(cars_groups)
 
-
+############################Extras#######################################
+df = df['col1'].apply(pd.Series) #Expanding columns
